@@ -64,7 +64,7 @@ local commandFuncs =
 {
 	setReference = function(chunk, cmd)
 		local krawptr = chunk + cmd.toffset + cmd.koffset
-		local kptr = ffi.cast("int*", krawptr)
+		local kptr = ffi.cast("intptr_t*", krawptr)
 		local vptr = ffi.cast("intptr_t", ffi.cast("void *", chunk + cmd.voffset))
 		kptr[0] = vptr
 	end,
